@@ -1,48 +1,84 @@
 (function() {
   'use strict';
+  let stopButton = document.querySelector('#stopButton')
+  let slowButton = document.querySelector('#slowButton')
+  let goButton = document.querySelector('#goButton')
+  let stopLight = document.querySelector('#stopLight')
+  let slowLight = document.querySelector('#slowLight')
+  let goLight = document.querySelector('#goLight')
+  
+  let isStopOn = false
+  let isSlowOn = false
+  let isGoOn = false
+
+  document.addEventListener("DOMContentLoaded", function() {
+    stopButton.addEventListener('click', function() {
+      if (isStopOn) {
+        stopLight.setAttribute('class', 'bulb')
+        isStopOn = false
+        console.log(`${this.textContent} bulb off`)
+      } else {
+      stopLight.setAttribute('class', 'bulb stop')
+      isStopOn = true
+      console.log(`${this.textContent} bulb on`)
+      }
+    })
+
+    stopButton.addEventListener('mouseenter', function(){
+      console.log(`Entered ${this.textContent} button`)
+
+    stopButton.addEventListener('mouseleave', function(){
+        console.log(`Left ${this.textContent} button`)
+      })  
+    })
+
+
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    slowButton.addEventListener('click', function() {
+      if (isSlowOn) {
+        slowLight.setAttribute('class', 'bulb')
+        isSlowOn = false
+        console.log(`${this.textContent} bulb off`)
+      } else {
+      slowLight.setAttribute('class', 'bulb slow')
+      isSlowOn = true
+      console.log(`${this.textContent} bulb on`)
+      }
+    })
+
+    slowButton.addEventListener('mouseenter', function(){
+      console.log(`Entered ${this.textContent} button`)
+    })
+    
+    slowButton.addEventListener('mouseleave', function(){
+      console.log(`Left ${this.textContent} button`)
+    })
+
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    goButton.addEventListener('click', function() {
+      if (isGoOn) {
+        goLight.setAttribute('class', 'bulb')
+        isGoOn = false
+        console.log(`${this.textContent} bulb off`)
+      } else {
+      goLight.setAttribute('class', 'bulb go')
+      isGoOn = true
+      console.log(`${this.textContent} bulb on`)
+      }
+    })
+
+    goButton.addEventListener('mouseenter', function(){
+      console.log(`Entered ${this.textContent} button`)
+    })
+    goButton.addEventListener('mouseleave', function(){
+      console.log(`Left ${this.textContent} button`)
+    })
+
+  });
 
   // YOUR CODE HERE
 })();
-//----part 1----//
-//When a user clicks on the "Stop" button, toggle the stop bulb's color.
-var stopButton = document.getElementById("stopButton");
-var stopLight = document.getElementById("stopLight");
-
-stopButton.addEventListener('click', function(){
-    stopLight.classList.toggle('stop')
-});
-
-//hen a user clicks on the "Slow" button, toggle the slow bulb's color.
-var slowButton = document.getElementById("slowButton");
-var slowLight = document.getElementById("slowLight");
-
-slowButton.addEventListener('click', function(){
-    slowLight.classList.toggle('slow')
-});
-
-//When a user clicks on the "Go" button, toggle the go bulb's color.
-var goButton = document.getElementById("goButton");
-var goLight = document.getElementById("goLight");
-
-goButton.addEventListener('click', function(){
-    goLight.classList.toggle('go')
-});
-
-
-//----part 2----//
-//When a user's mouse enters a button, log "Entered <textContent> button" to the console.
-var mouseOver = function(event) {
-    console.log('Entered ' + event.target.textContent + ' button');
-};
-
-stopButton.addEventListener('mouseover', mouseOver);
-slowButton.addEventListener('mouseover', mouseOver);
-goButton.addEventListener('mouseover', mouseOver);
-
-//When a user's mouse leaves a button, log "Left <textContent> button" to the console.
-var mouseOut = function(event) {
-    console.log('Left ' + event.target.textContent + ' button');
-};
-stopButton.addEventListener('mouseout', mouseOut);
-slowButton.addEventListener('mouseout', mouseOut);
-goButton.addEventListener('mouseout', mouseOut);
